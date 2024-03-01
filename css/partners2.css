@@ -1,0 +1,50 @@
+/*main part*/
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    background-color: antiquewhite;
+    text-align: center;
+}
+
+.about-container {
+    text-align: left;
+    padding-top: 100px;
+
+}
+
+.about-heading {
+    font-size: 36px;
+    color: rgb(225, 135, 125);
+    /* Adjust the color as needed */
+    margin-bottom: 20px;
+    margin-top: 70px;
+    font-family: mv boli;
+}
+
+.social-link1:is(:hover, :focus-visible) {
+    color: #fac031;
+    transition: 0.75s ease;
+    
+    /* font-size: 37px; */
+}
+
+.cont:is(:hover, :focus-visible) {
+    color: #fac031;
+    transition: 0.75s ease;
+    font-weight: 600;
+    font-size: 18px;
+}
+.social-list1 {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    /* padding-left: 80px; */
+}
+
+.social-link1 {
+    color: black;
+    font-size: 2.3rem;
+}
+
+

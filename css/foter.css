@@ -1,0 +1,285 @@
+li {
+    list-style: none;
+}
+
+
+footer a,
+button,
+ion-icon {
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    padding-inline: 16px;
+}
+
+/* .logo {
+    color: rgb(172, 110, 25);
+    
+    font-size: 3rem;
+    font-family: 'Rosario', sans-serif;
+} */
+
+
+/* .btn {
+    background-color: rgb(3, 0, 0);
+    color: white;
+    display: flex;
+    align-items: center;
+    max-width: max-content;
+    gap: 12px;
+    min-height: 58px;
+    padding-inline: 36px;
+    border-radius: 32px 6px;
+    transition: 0.25s ease;
+    font-size: 1.6rem;
+} */
+
+/*Footer*/
+.btn-foot {
+    /* background-color: rgb(3, 0, 0); */
+    background-color: var(--foot-btn-bg);
+    color: white;
+    display: flex;
+    align-items: center;
+    max-width: max-content;
+    gap: 12px;
+    min-height: 58px;
+    padding-inline: 36px;
+    border-radius: 32px 6px;
+    transition: 0.25s ease;
+    /* font-size: 1.6rem; */
+    font-size: var(--foot-link-size);
+}
+
+
+.btn-foot:is(:hover, :focus-visible) {
+    /* background-color: rgb(109, 55, 55); */
+    background-color: var(--foot-btn-hover-bg);
+}
+
+.footer-link:is(:hover, :focus-visible) {
+    color: var(--black);
+    font-weight: 600;
+}
+
+.social-link:is(:hover, :focus-visible) {
+    color: var(--white);
+    transition: 0.75s ease;
+    /* font-size: 37px; */
+}
+
+/*-----------------------------------*\
+    #FOOTER
+  \*-----------------------------------*/
+.footsection {
+    width: 100%;
+    padding-bottom: none;
+}
+
+.footer {
+    /* background-color: #fac031; */
+    background-color: var(--foot-bg);
+    color: white;
+    padding-top: 90px;
+}
+
+.footer-top {
+    display: grid;
+    gap: 30px;
+    padding-block-end: 50px;
+    border-block-end: 1px solid var(--black);
+}
+
+
+#logocol {
+    color: var(--black);
+    /* font-size: 5rem; */
+    font-size: var(--logo-size);
+    font-family: 'Rosario', sans-serif;
+}
+
+/* .footer .logo {
+   
+    font-size: 3.2rem;
+} */
+
+.footer-brand .footer-text {
+    margin-block: 20px;
+}
+
+.footer-text {
+    /* font-size: 1.6rem !important; */
+    font-size: var(--foot-txt-size) !important;
+}
+
+
+.footer-link {
+    /* font-size: 1.9rem !important; */
+    font-size: var(--foot-link-size) !important;
+    ;
+}
+
+.social-list {
+    display: flex;
+    gap: 20px;
+}
+
+
+
+.social-link {
+    color: var(--black);
+    /* font-size: 2.8rem; */
+    font-size: var(--social-link-size);
+}
+
+.footer-list-title {
+    color: var(--black);
+    font-family: 'Rosario', sans-serif;
+    /* font-size: 2.1rem; */
+    font-size: var(--foot-list-tsize);
+    font-weight: 700;
+    margin-block-end: 20px;
+}
+
+.footer-link {
+    padding-block: 7px;
+}
+
+.footer-list .footer-text {
+    margin-block-end: 24px;
+}
+
+.footer-bottom {
+    padding-block: 40px;
+    text-align: center;
+}
+
+.copyright {
+    color: var(--black);
+    font-family: 'Rosario', sans-serif;
+    /* font-size: 1.8rem; */
+    font-size: var(--copy-size);
+}
+
+/*-----------------------------------*\
+    #MEDIA QUERIES
+  \*-----------------------------------*/
+
+/**
+   * responsive for large than 575px screen
+   */
+
+@media (min-width: 575px) {
+
+    /**
+     * REUSED STYLE
+     */
+
+    .container {
+        max-width: 540px;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+}
+
+
+
+
+
+/**
+   * responsive for large than 768px screen
+   */
+
+@media (min-width: 768px) {
+
+    /**
+     * CUSTOM PROPERTY
+     */
+
+    :root {
+        /** typography*/
+        --fs-1: 6.5rem;
+    }
+
+
+
+    /** REUSED STYLE*/
+
+    .container {
+        max-width: 720px;
+    }
+
+    .grid-list {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 30px;
+    }
+
+
+
+
+    /**
+     * FOOTER
+     */
+
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+/**
+   * responsive for large than 992px screen
+   */
+
+@media (min-width: 992px) {
+
+    /**CUSTOM PROPERTY*/
+    :root {
+
+        /**typography*/
+        --fs-2: 4.8rem;
+        --fs-3: 3.5rem;
+    }
+
+    /**REUSED STYLE*/
+
+    .container {
+        max-width: 950px;
+    }
+
+
+}
+
+
+
+
+
+/**
+   * responsive for large than 1200px screen
+   */
+
+@media (min-width: 1200px) {
+
+    /** REUSED STYLE*/
+    .container {
+        max-width: 1250px;
+    }
+
+    /**FOOTER*/
+
+    .footer-top {
+        grid-template-columns: 1fr 0.5fr 0.5fr 0.6fr;
+    }
+
+    .footer-brand {
+        padding-inline-end: 60px;
+    }
+
+}

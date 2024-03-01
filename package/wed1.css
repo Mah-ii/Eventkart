@@ -1,0 +1,1131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: 'PT Sans', sans-serif;
+
+}
+
+/*navbar*/
+
+/* Googlefont Poppins CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: 70px;
+    background: var(--white);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    z-index: 99;
+}
+
+nav .navbar {
+    height: 100%;
+    max-width: 1250px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    padding: 0 50px;
+}
+
+.navbar .logo a {
+    font-size: 30px;
+    color: var(--homecolor1);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav .navbar .nav-links {
+    line-height: 70px;
+    height: 100%;
+}
+
+nav .navbar .links {
+    display: flex;
+}
+
+nav .navbar .links li {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0 14px;
+}
+
+nav .navbar .links li a {
+    height: 100%;
+    text-decoration: none;
+    white-space: nowrap;
+    color: #111010;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+nav .navbar .links li a:hover {
+    color: var(--homecolor2);
+}
+
+.links li:hover .htmlcss-arrow,
+.links li:hover .js-arrow {
+    transform: rotate(180deg);
+}
+
+nav .navbar .links li .arrow {
+
+    height: 100%;
+    width: 22px;
+    line-height: 70px;
+    text-align: center;
+    display: inline-block;
+    color: #111010;
+    transition: all 0.3s ease;
+}
+
+nav .navbar .links li .sub-menu {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    line-height: 40px;
+    background: var(--homecolor3);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 4px 4px;
+    display: none;
+    z-index: 2;
+}
+
+nav .navbar .links li:hover .htmlCss-sub-menu,
+nav .navbar .links li:hover .js-sub-menu {
+    display: block;
+}
+
+.navbar .links li .sub-menu li {
+    padding: 0 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar .links li .sub-menu a {
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.navbar .links li .sub-menu a:hover {
+    color: black;
+
+}
+
+#login a {
+    color: #000;
+    text-decoration: none;
+    border: 2px solid var(--homecolor1);
+    border-radius: 20px;
+    padding: 7px 20px;
+    transition: 0.3s;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#login a:hover {
+    background: var(--homecolor1);
+    color: var(--white);
+}
+
+
+/*User*/
+.navbar .user-box {
+    position: relative;
+    height: 40px;
+    width: 40px;
+}
+
+.navbar .user-box i {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 42px;
+    color: var(--homecolor2);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 100%;
+    right: 10%;
+    width: 320px;
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+}
+
+.sub-menu-wrap .sub-menu {
+    background: var(--homecolor2);
+    padding: 20px;
+    margin: 10px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-info h3 {
+    font-weight: 500;
+}
+
+.user-info img {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.sub-menu hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #292020;
+    margin: 15px 0 10px;
+}
+
+.sub-menu-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #070606;
+    margin: 12px 0;
+}
+
+.sub-menu-link p {
+    width: 100%;
+    font-size: 20px;
+}
+
+.sub-menu-link img {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.sub-menu-link span {
+    font-size: 18px;
+    transition: transform 0.5s;
+}
+
+.sub-menu-link:hover span {
+    transform: translateX(5px);
+}
+
+.sub-menu-link:hover p {
+    font-weight: 600;
+}
+
+/*User end*/
+
+.navbar .nav-links .sidebar-logo {
+    display: none;
+}
+
+.navbar .bx-menu {
+    display: none;
+}
+
+@media (max-width:920px) {
+    nav .navbar {
+        max-width: 100%;
+        padding: 0 25px;
+    }
+
+    nav .navbar .logo a {
+        font-size: 27px;
+    }
+
+    nav .navbar .links li {
+        padding: 0 10px;
+        white-space: nowrap;
+    }
+
+    nav .navbar .links li a {
+        font-size: 15px;
+    }
+}
+
+
+@media (max-width:800px) {
+    .navbar .bx-menu {
+        display: block;
+    }
+
+    nav .navbar .nav-links {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        display: block;
+        max-width: 270px;
+        width: 100%;
+        background: var(--homecolor1);
+        line-height: 40px;
+        padding: 20px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        transition: all 0.5s ease;
+        z-index: 1000;
+    }
+
+
+    nav .navbar .links li a:hover {
+        color: black
+    }
+
+
+    .navbar .nav-links .sidebar-logo {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .sidebar-logo .logo-name {
+        font-size: 25px;
+        color: var(--white);
+    }
+
+    .sidebar-logo i {
+        font-size: 25px;
+        color: var(--white);
+    }
+
+    .navbar .bx-menu {
+        font-size: 25px;
+        color: var(--homecolor1);
+    }
+
+    nav .navbar .links {
+        display: block;
+        margin-top: 20px;
+    }
+
+    nav .navbar .links li .arrow {
+        line-height: 40px;
+    }
+
+
+    nav .navbar .links li {
+        display: block;
+    }
+
+    nav .navbar .links li .sub-menu {
+        position: relative;
+        top: 0;
+        box-shadow: none;
+        display: none;
+    }
+
+    nav .navbar .links li .sub-menu li {
+        border-bottom: none;
+
+    }
+}
+
+
+@media (max-width:370px) {
+    nav .navbar .nav-links {
+        max-width: 100%;
+    }
+
+}
+
+
+
+/* -------main home ------- */
+.fline {
+    background-image: url('../image/webg2.jpeg');
+    margin: 2rem;
+    height: 45rem;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    border-radius: 16px;
+    color: #fff;
+
+
+}
+
+.intro {
+    border-radius: 16px;
+    height: 45rem;
+    background-color: rgba(0, 0, 0, 0.467);
+
+
+
+}
+
+.fline h1 {
+    font-size: 5rem;
+    font-family: 'Merriweather', serif;
+    padding-top: 15rem;
+}
+
+.fline h3 {
+    font-size: 2rem;
+    font-family: 'Merriweather', serif;
+
+}
+
+.about {
+    height: 30rem;
+    background-color: rgba(216, 197, 197, 0.222);
+    border-radius: 1rem;
+    padding: 1rem;
+    display: flex;
+    gap: 25rem;
+    margin: 2rem;
+
+}
+
+.about img {
+    height: 15rem;
+    width: 15rem;
+    border-radius: 1rem;
+
+
+}
+
+.about .imgg {
+    position: relative;
+
+}
+
+.fimg {
+    left: 5rem;
+}
+
+.simg {
+    top: -10rem;
+    left: 17rem;
+}
+
+.timg {
+    top: -18rem;
+    left: 3rem;
+}
+
+.aboutPlanner {
+    width: 35rem;
+    font-family: 'Merriweather', serif;
+    padding-left: 5rem;
+}
+
+.aboutPlanner h1 {
+    font-size: 3rem;
+    color: rgb(77, 35, 30);
+}
+
+.aboutPlanner h2 {
+    font-size: 3rem;
+    color: rgb(77, 35, 30);
+}
+
+.aboutPlanner p {
+    font-size: 1rem;
+    color: rgb(76, 69, 69)
+}
+
+/*------- service packages------ */
+body {
+    font-family: "Open Sans", "Roboto", sans-serif;
+    line-height: 1.5em;
+    margin-bottom: 0%;
+    width: 100%;
+    margin-top: 4%;
+    overflow-x: hidden;
+    background: #f1f1f1;
+    font-size: 14px;
+}
+
+
+
+.service {
+    
+    margin: 2rem;
+    height: 70rem;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    border-radius: 16px;
+    color: #fff;
+
+}
+
+
+.text-uppercase {
+    font-weight: bold;
+    font-size: 25px;
+
+}
+
+.form-control {
+    font-size: 14px;
+    outline: none;
+    /*border-radius: 0;*/
+}
+
+.pricing {
+    width: 18%;
+    min-height: 200px;
+    float: left;
+    background: gray;
+    margin-left: 2%;
+    margin-top: 5rem;
+
+}
+
+.package-image {
+    width: 100%;
+    /* Ensure images are responsive */
+    height: 200px;
+    /* Set a fixed height for all images */
+    object-fit: cover;
+    /* Maintain aspect ratio while covering the container */
+}
+
+.container-fluid.custom-container {
+    width: 90%;
+    padding-top: 5rem;
+    margin-top: 10rem;
+}
+
+
+/*weeding button*/
+
+a.btn.btn-custom {
+    background: none;
+    border-radius: 0;
+    font-size: 12px;
+    width: 100%;
+    border: 2px solid rgb(77, 35, 30);
+    background: rgb(77, 35, 30);
+    color: #ffffff;
+    /* font-weight: 700; */
+    text-transform: uppercase;
+}
+
+a.btn.btn-custom:hover {
+    /*background: #c7081b; */
+    color: white;
+}
+
+/*birthday button*/
+a.btn.abtn-custom {
+    background: none;
+    border-radius: 0;
+    font-size: 15px;
+    width: 100%;
+    border: 2px solid #fac031;
+    background: #fac031;
+    color: #ffffff;
+    /* font-weight: 700; */
+    text-transform: uppercase;
+
+}
+
+a.btn1.abtn-custom:hover {
+    /*background: #c7081b; */
+    color: white;
+}
+
+.list-group-item.text-center.text-uppercase {
+    background: white;
+    color: black;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.list-group-item {
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+
+img.card-img-top {
+    border-radius: 0;
+}
+
+.font-custom {
+    font-size: 12px;
+    color: #222;
+    font-weight: bold;
+}
+
+
+
+
+/* venue section */
+.venu {
+    margin-top: 10rem;
+    margin: 3.7rem;
+    height: 35rem;
+    display: flex;
+}
+
+.venu img {
+    padding: 2rem;
+    border-top-right-radius: 13rem;
+    border-top-left-radius: 13rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+
+}
+
+.venu h1 {
+    font-size: 2rem;
+    font-family: 'Merriweather', serif;
+    color: #4b3737;
+    text-align: center;
+    margin: 0.3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.venu button {
+    margin-left: 35%;
+    font-size: 1.3rem;
+    font-family: 'Merriweather', serif;
+    color: #8b4242;
+    text-align: center;
+    padding: 1.4rem;
+    border-radius: 3rem;
+}
+
+
+
+.venu a {
+    text-decoration: none;
+}
+
+.venu img:hover {
+    border: .3rem solid rgb(255, 255, 255);
+
+
+}
+
+/* card design */
+.cardDesing {
+
+    text-align: center;
+    color: #4b3737;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+
+
+}
+
+.cardDesing .cdimg {
+    display: flex;
+}
+
+.cardDesing .cdimg img {
+    height: 18rem;
+    width: 18rem;
+    padding: 1rem;
+    border-top-right-radius: 5rem;
+    border-bottom-left-radius: 5rem;
+    border-top-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
+
+.cardDesing .cdimg img:hover {
+    border: .3rem solid rgb(255, 255, 255);
+
+
+}
+
+
+/* order section */
+.order {
+    height: 45rem;
+    background-image: url('../image/wedbg1.avif');
+    background-size: cover;
+    display: flex;
+
+}
+
+.order img {
+    height: 33rem;
+    margin: 6rem;
+    border: .6rem solid rgb(255, 255, 255);
+    border-top-left-radius: 15rem;
+    border-bottom-right-radius: 5rem;
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+
+}
+
+
+
+form {
+    margin: 8rem;
+
+}
+
+form input,
+textarea,
+.btn {
+    height: 3rem;
+    width: 35rem;
+    border-radius: 3rem;
+    margin: .5rem;
+    padding-left: 1rem;
+    border-color: rgb(68, 61, 44);
+}
+
+/*----- media quries -----*/
+
+@media screen and (max-width:575px) {
+    .venu {
+        flex-direction: column;
+        text-align: center;
+        height: 90rem;
+        margin-bottom: 25rem;
+
+
+    }
+
+    .venu button {
+        margin-left: 0rem;
+    }
+
+    .cardDesing .cdimg {
+        flex-direction: column;
+    }
+
+
+    .review .rev {
+        flex-direction: column;
+
+    }
+
+    .review .rev .frev {
+        flex-direction: column;
+
+    }
+
+    .review .rev .srev {
+        flex-direction: column;
+
+    }
+
+    .order {
+        flex-direction: column;
+        margin-bottom: 25rem;
+
+    }
+
+    form {
+        margin: 0rem;
+
+    }
+
+    form input,
+    textarea,
+    .btn {
+        width: 25rem;
+    }
+
+    .about {
+        flex-direction: column;
+        gap: 0rem;
+        height: 65rem;
+        padding: 0;
+    }
+
+    .aboutPlanner {
+        margin: 1rem;
+        padding-left: 0.3rem;
+    }
+
+    .about .imgg {
+        position: initial;
+        display: flex;
+        flex-direction: column;
+        padding-left: 8rem;
+
+    }
+
+}
+
+
+@media screen and (max-width:890px) {
+    .venu {
+        flex-direction: column;
+        text-align: center;
+        height: 90rem;
+        margin-bottom: 25rem;
+
+    }
+
+    .venu button {
+        margin-left: 0rem;
+    }
+
+    .review .rev {
+        flex-direction: column;
+
+    }
+
+    .review .rev img {
+        padding: 1.5rem;
+
+    }
+
+    .order {
+        flex-direction: column;
+        margin-bottom: 25rem;
+
+    }
+
+    form {
+        margin: 1rem;
+
+    }
+
+    form input,
+    textarea,
+    .btn {
+        width: 25rem;
+    }
+
+    .about {
+        flex-direction: column;
+        gap: 0rem;
+        height: 65rem;
+        padding: 0;
+    }
+
+    .aboutPlanner {
+        margin: 1rem;
+        text-align: center;
+    }
+
+    /* .about .imgg{        
+       position:initial;
+       display: flex;
+       flex-direction: column;
+
+   }
+   .about .imgg{
+       margin-left: auto;
+       margin-right: auto;
+       width: 50%;
+   } */
+}
+
+
+/*------ footer section -----*/
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+:root {
+
+    /**colors*/
+
+    --cultured: hsla(0, 0%, 97%, 1);
+    --french-bistre: hsla(31, 17%, 44%, 1);
+    --jet: hsla(0, 0%, 20%, 1);
+    --bistre: hsla(35, 100%, 9%, 1);
+    --bistre_a75: hsla(35, 100%, 9%, 0.75);
+    --camel: hsla(30, 30%, 58%, 1);
+    --umber: hsla(31, 17%, 36%, 1);
+    --golden-brown_a60: hsla(35, 70%, 38%, 0.6);
+    --granite-gray: hsla(0, 0%, 38%, 1);
+    --white: hsla(0, 0%, 100%, 1);
+    --black: hsla(0, 0%, 0%, 1);
+
+    /**typography*/
+
+    --ff-rosario: 'Rosario', sans-serif;
+    --ff-poppins: 'Poppins', sans-serif;
+
+    --fs-1: 5rem;
+    --fs-2: 4.2rem;
+    --fs-3: 3rem;
+    --fs-4: 2.6rem;
+    --fs-5: 1.8rem;
+
+    --fw-600: 600;
+    --fw-700: 700;
+
+    /**spacing*/
+    --section-padding: 12rem;
+
+    /**box shadow */
+    --shadow-1: 0px 0px 30px 0px hsla(0, 0%, 0%, 0.2);
+
+    /**border radius*/
+    --radius-circle: 50%;
+    --radius-20: 20px;
+    --radius-16: 16px;
+    --radius-6: 6px;
+    --radius-4: 4px;
+    --btn-radius: 32px 6px;
+
+    /**transition*/
+    --transition-1: 0.25s ease;
+    --transition-2: 0.5s ease;
+    --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
+    --cubic-out: cubic-bezier(0.05, 0.83, 0.52, 0.97);
+}
+
+li {
+    list-style: none;
+}
+
+footer a,
+button,
+ion-icon {
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    padding-inline: 16px;
+}
+
+
+.logo {
+    color: var(--bistre);
+    font-size: var(--fs-3);
+    font-family: var(--ff-rosario);
+}
+
+.btn {
+    background-color: var(--french-bistre);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    max-width: max-content;
+    gap: 12px;
+    min-height: 58px;
+    padding-inline: 36px;
+    border-radius: var(--btn-radius);
+    transition: var(--transition-1);
+    font-size: 1.6rem;
+}
+
+.btn:is(:hover, :focus-visible) {
+    background-color: var(--umber);
+}
+
+/*-----------------------------------*\
+    #FOOTER
+  \*-----------------------------------*/
+.footsection {
+    width: 100%;
+    padding-bottom: none;
+}
+
+.footer {
+    background-color: rgba(73, 29, 35, 0.696);
+    color: var(--white);
+    padding-top: 90px;
+}
+
+.footer-top {
+    display: grid;
+    gap: 30px;
+    padding-block-end: 50px;
+    border-block-end: 1px solid var(--bistre_a75);
+}
+
+.footer .logo {
+    color: var(--bistre_a75);
+    font-size: 3.2rem;
+}
+
+.footer-brand .footer-text {
+    margin-block: 20px;
+}
+
+.footer-text {
+    font-size: 1rem !important;
+}
+
+.footer-link {
+    font-size: 1rem !important;
+}
+
+.social-list {
+    display: flex;
+    gap: 20px;
+}
+
+.social-link {
+    color: var(--bistre_a75);
+    font-size: 2.8rem;
+}
+
+.footer-list-title {
+    color: var(--bistre_a75);
+    font-family: var(--ff-rosario);
+    font-size: 1.8rem;
+    font-weight: var(--fw-700);
+    margin-block-end: 20px;
+}
+
+.footer-link {
+    padding-block: 7px;
+}
+
+.footer-list .footer-text {
+    margin-block-end: 24px;
+}
+
+.footer-bottom {
+    padding-block: 40px;
+    text-align: center;
+}
+
+.copyright {
+    color: var(--bistre_a75);
+    font-family: var(--ff-rosario);
+    font-size: 20px;
+}
+
+
+/*-----------------------------------*\
+    #MEDIA QUERIES
+  \*-----------------------------------*/
+
+/**
+   * responsive for large than 575px screen
+   */
+
+@media (min-width: 575px) {
+
+    /**
+     * REUSED STYLE
+     */
+
+    .container {
+        max-width: 540px;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+}
+
+
+
+
+
+/**
+   * responsive for large than 768px screen
+   */
+
+@media (min-width: 768px) {
+
+    /**
+     * CUSTOM PROPERTY
+     */
+
+    :root {
+        /** typography*/
+        --fs-1: 6.5rem;
+    }
+
+
+
+    /** REUSED STYLE*/
+
+    .container {
+        max-width: 720px;
+    }
+
+    .grid-list {
+        grid-template-columns: 1fr 1fr;
+        column-gap: 30px;
+    }
+
+
+
+
+    /**
+     * FOOTER
+     */
+
+    .footer-top {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+/**
+   * responsive for large than 992px screen
+   */
+
+@media (min-width: 992px) {
+
+    /**CUSTOM PROPERTY*/
+    :root {
+
+        /**typography*/
+        --fs-2: 4.8rem;
+        --fs-3: 3.5rem;
+    }
+
+    /**REUSED STYLE*/
+
+    .container {
+        max-width: 950px;
+    }
+
+
+}
+
+
+
+
+
+/**
+   * responsive for large than 1200px screen
+   */
+
+@media (min-width: 1200px) {
+
+    /** REUSED STYLE*/
+    .container {
+        max-width: 1250px;
+    }
+
+    /**FOOTER*/
+
+    .footer-top {
+        grid-template-columns: 1fr 0.5fr 0.5fr 0.6fr;
+    }
+
+    .footer-brand {
+        padding-inline-end: 60px;
+    }
+
+}
