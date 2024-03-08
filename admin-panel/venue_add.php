@@ -15,8 +15,6 @@ if (isset($_POST['submit'])) {
 
     $venue_location = $_POST['Vlocation'];
 
-
-    //insert product
     mysqli_query($connection, "INSERT INTO `venue`(`venue_name`, `place`, `category`, `image`, `location`) 
     VALUES  ('$venue_name','$venue_place','$venue_category','$img_des','$venue_location')");
 

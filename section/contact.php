@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../css/nav.css">
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" href="../css/style2.css"> -->
+  
 
     <style>
         :root {
@@ -71,15 +71,8 @@
 </head>
 
 <body>
-    <!--navbar-->
 
     <?php include "../connection/navuser.php" ?>
-
-  
-
-    <!--main part-->
-
-
 
     <div class="container">
         <div class="row">
@@ -165,11 +158,6 @@
         </div>
     </div>
 
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="js/jquery-3.2.1.slim.min.js"></script>
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>

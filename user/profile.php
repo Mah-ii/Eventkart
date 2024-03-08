@@ -3,7 +3,7 @@ include "../connection/config.php";
 session_start();
 
 // Check if the user is logged in
-if(isset($_SESSION['login']) && $_SESSION['login'] === true) {
+if (isset($_SESSION['login']) && $_SESSION['login'] === true) {
     // Fetch user information from session variables
     $userId = $_SESSION['id'];
     $userName = $_SESSION['name'];
@@ -20,6 +20,7 @@ if(isset($_SESSION['login']) && $_SESSION['login'] === true) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,22 +41,27 @@ if(isset($_SESSION['login']) && $_SESSION['login'] === true) {
         }
 
         .profile-picture {
-            width: 10px; /* Limit the width of the profile picture */
+            width: 10px;
+            /* Limit the width of the profile picture */
             height: 20px;
             border-radius: 50%;
-            display: block; /* Ensure it behaves as a block element */
-            margin: 0 auto; /* Center the image horizontally within its parent */
+            display: block;
+            /* Ensure it behaves as a block element */
+            margin: 0 auto;
+            /* Center the image horizontally within its parent */
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .profile-picture img{
-            width: 15rem; /* Limit the width of the profile picture */
+        .profile-picture img {
+            width: 15rem;
+            /* Limit the width of the profile picture */
             height: 20rem;
-            
+
 
         }
+
         .user-info {
             margin-left: 20px;
         }
@@ -74,17 +80,26 @@ if(isset($_SESSION['login']) && $_SESSION['login'] === true) {
         }
     </style>
 </head>
+
 <body>
     <section class="portion">
         <div class="user-info">
             <h3>User Information</h3>
-            <p><strong>Name:</strong> <?php echo isset($userName) ? $userName : ''; ?></p>
-            <p><strong>Email:</strong> <?php echo isset($userEmail) ? $userEmail : ''; ?></p>
-            <p><strong>Phone:</strong> <?php echo isset($userPhone) ? $userPhone : ''; ?></p>
-            <!-- Edit button -->
-            <button class="edit-button"><a href="edit_profile.php?id=<?php echo isset($userId) ? $userId : ''; ?>"> Edit</a></button>
+            <p><strong>Name:</strong>
+                <?php echo isset($userName) ? $userName : ''; ?>
+            </p>
+            <p><strong>Email:</strong>
+                <?php echo isset($userEmail) ? $userEmail : ''; ?>
+            </p>
+            <p><strong>Phone:</strong>
+                <?php echo isset($userPhone) ? $userPhone : ''; ?>
+            </p>
+       
+            <button class="edit-button"><a href="edit_profile.php?id=<?php echo isset($userId) ? $userId : ''; ?>">
+                    Edit</a></button>
         </div>
     </section>
-  
+
 </body>
+
 </html>

@@ -15,17 +15,6 @@ if (isset($_POST['upload'])) {
 
     mysqli_query($connection,"INSERT INTO `rev`(`user_name`, `user_email`, `review`, `image`) VALUES ('$name','$email','$review','$img_des')");
 
-    // Prepare the SQL statement
-    // $stmt = $connection->prepare("INSERT INTO `rev`(`user_name`, `user_email`, `review`, `image`, `category`) VALUES (?, ?, ?, ?, ?)");
-
-    // // Bind parameters
-    // $stmt->bind_param("sssss", $name, $email, $review, $img_des, $category);
-
-    // // Execute the statement
-    // $stmt->execute();
-
-    // // Close the statement
-    // $stmt->close();
 
     header("location:../HomePage.php");
 }

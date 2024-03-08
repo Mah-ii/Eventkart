@@ -64,8 +64,9 @@
 
         <li class="nav-item ">
           <a class="nav-link" href="partner.php">
-            <span class="icon" data-bs-toggle="tooltip" data-bs-title="partner"><i class="fa-regular fa-image"></i></span>
-            <span class="menu">partners</span>
+            <span class="icon" data-bs-toggle="tooltip" data-bs-title="partner"><i
+                class="fa-regular fa-image"></i></span>
+            <span class="menu">Partners</span>
           </a>
         </li>
 

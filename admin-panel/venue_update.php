@@ -49,10 +49,10 @@
                     <div class="mb-3">
                         <label class="form-label">Select Package Category</label>
                         <select class="form-select" name="Pages">
-                            <!-- <option disabled> Select Category</option> -->
+                          
                             <?php
                             if ($row['category'] == "Wedding") {
-                                // $selected = "selected";
+                               
                                 echo " <option disabled> Select Category</option>";
                                 echo "<option selected value='Wedding'>Wedding</option>";
                                 echo "<option value='Birthday'>Birthday</option>";
@@ -83,8 +83,7 @@
                                 echo "<option value='Corporate'>Corporate</option>";
                                 echo "<option value='Others'>Others</option>";
                             }
-                            // echo "<option {$selected} value='{$row['category']}'>{$row['category']}</option>";
-                            
+                           
 
                             ?>
                         </select>
@@ -131,10 +130,6 @@ if (isset($_POST['update'])) {
     $venue_place = $_POST['Vplace'];
     $venue_category = $_POST['Pages'];
     $photo_image = $_FILES['image'];
-    // $photo_category = $_POST['Pages'];
-    // echo "<pre>";
-    // print_r($product_image);
-    // echo "</pre>";
     $image_loc = $_FILES['image']['tmp_name'];
     $image_name = $_FILES['image']['name'];
     $img_des = "Venueimage/" . $image_name;

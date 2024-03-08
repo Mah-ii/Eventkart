@@ -8,15 +8,8 @@
                 <i class='bx bx-x'></i>
             </div>
             <ul class="links" id="linkscall">
-                <li><a href="HomePage.php">Home</a></li>
-                <li>
-                    <a href="#">About</a>
-                    <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
-                    <ul class="htmlCss-sub-menu sub-menu">
-                        <li><a href="section/about.php">About Us</a></li>
-                        <li><a href="section/partners.php">Preferred Partners</a></li>
-                    </ul>
-                </li>
+                <li><a href="index.php">Home</a></li>
+
                 <li>
                     <a href="#">Services</a>
                     <i class='bx bxs-chevron-down js-arrow arrow '></i>
@@ -28,15 +21,24 @@
                     </ul>
                 </li>
                 <li><a href="section/gallery.php">Gallery</a></li>
-                <li><a href="section/review.php">Review</a></li>
                 <li>
-                    <a href="section/contact.php">Contact Us</a>
+                    <a href="#">About</a>
+                    <i class='bx bxs-chevron-down htmlcss-arrow arrow  '></i>
+                    <ul class="htmlCss-sub-menu sub-menu">
+                        <li><a href="section/about.php">About Us</a></li>
+                        <li><a href="section/partners.php">Preferred Partners</a></li>
+                        <li>
+                            <a href="section/contact.php">Contact Us</a>
+                        </li>
+                    </ul>
                 </li>
+                <li><a href="section/review.php">Review</a></li>
+
 
             </ul>
         </div>
 
-    
+
         <div class="login" id="login">
             <?php
 

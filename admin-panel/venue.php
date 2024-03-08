@@ -36,32 +36,24 @@ $result = mysqli_query($connection, $insert);
 
     ?>
 
-
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <h2 style="margin-top: 1.5rem;">Venue Details</h2>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
 
-        <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <!-- <a class="btn btn-md btn-success" style="font-size: 12px;" href="venue_add.php"><i
-                                        class="mdi mdi-account-plus mr-2"></i> Add New Info.
-                                </a> -->
-                                <!-- <h4> Wedding Packages</h4> -->
+
                                 <div class="button-container">
                                     <a href="venue_add.php" class="btn btn-md btn-success"><i
                                             class="mdi mdi-buffer mr-2"></i>Add New Venue</a>
@@ -100,7 +92,7 @@ $result = mysqli_query($connection, $insert);
                                                 </td>
                                                 <td>
                                                     <img src="<?php echo $row['image']; ?>" height="100">
-                                                    <!-- <?php echo $row['image'] ?> -->
+
                                                 </td>
                                                 <td>
                                                     <?php echo $row['location'] ?>

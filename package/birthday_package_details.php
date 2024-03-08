@@ -1,39 +1,31 @@
 <?php
 session_start();
-include '../connection/config.php'; 
+include '../connection/config.php';
 
 $id = $_GET['id'];
 $query = "SELECT * FROM birthday_service WHERE id = '$id'";
 $result = mysqli_query($connection, $query);
 $row = mysqli_fetch_assoc($result);
 
-// Check if the user is logged in
+
 $userLoggedIn = isset($_SESSION['login']) && $_SESSION['login'] === true;
 
-// Define a variable to indicate whether the user can book the package
 $canBookPackage = $userLoggedIn;
 
-
-// Store the current URL in a session variable
 $_SESSION['redirect_url'] = $_SERVER['REQUEST_URI'];
 
-
+$minDate = date('Y-m-d');
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-//require 'vendor/autoload.php'; // Adjust the path as needed
 require '../vendor/autoload.php';
 require '../PHPMailer/src/PHPMailer.php';
 require '../PHPMailer/src/SMTP.php';
 
 
-
-
-
-// Process the booking form if the user is logged in and the form is submitted
 if ($userLoggedIn && isset($_POST['register'])) {
-    // Process the booking form
+
     $user_name = $_POST['user_name'];
     $user_phone = $_POST['user_phone'];
     $user_email = $_POST['user_email'];
@@ -41,33 +33,32 @@ if ($userLoggedIn && isset($_POST['register'])) {
     $date = $_POST['date'];
     $event_type = $row['service_type'];
 
-    // Check if the selected date and venue are already booked
+
     $dupQuery = "SELECT * FROM booking WHERE date = '$date' AND venue = '$venue'";
     $dupResult = mysqli_query($connection, $dupQuery);
 
-    if(mysqli_num_rows($dupResult) > 0) {
+    if (mysqli_num_rows($dupResult) > 0) {
         echo "<script>alert('This date and venue are already booked. Please choose another date or venue.')</script>";
     } else {
-        // Proceed with the booking process
+
         $event_type = $row['service_type'];
 
         $insertQuery = "INSERT INTO booking (user_name, user_phone, user_email, venue, date, event_type) 
                         VALUES ('$user_name', '$user_phone', '$user_email', '$venue', '$date', '$event_type')";
         $insertResult = mysqli_query($connection, $insertQuery);
 
-        if($insertResult) {
+        if ($insertResult) {
             echo "<script>alert('SUCCESSFULLY registered')</script>";
-            echo "<script> location.href = 'birthday.php'</script>";
+            echo "<script> location.href = 'confirm_booking.php?id=$id'</script>";
 
             $mail = new PHPMailer(true);
 
             try {
-                // Server settings
                 $mail->isSMTP();
-                $mail->Host       = 'smtp.gmail.com'; // Set your SMTP server
-                $mail->SMTPAuth   = true;
-                $mail->Username   = 'eventkart2024@gmail.com';
-                $mail->Password   = 'kcwsvjboibephcgc'; // Use your generated App Password here
+                $mail->Host = 'smtp.gmail.com';
+                $mail->SMTPAuth = true;
+                $mail->Username = 'eventkart2024@gmail.com';
+                $mail->Password = 'kcwsvjboibephcgc';
                 $mail->SMTPSecure = 'ssl';
                 $mail->Port = 465;
                 $mail->setFrom('eventkart2024@gmail.com');
@@ -76,7 +67,7 @@ if ($userLoggedIn && isset($_POST['register'])) {
                 $mail->isHTML(true);
 
                 $mail->Subject = "Your Booking is Confirmed!";
-                $mail->Body    =   "Dear Customer, <br/>
+                $mail->Body = "Dear Customer, <br/>
                                 Thank you for your booking with us! We've received your request
                                 and have successfully reserved your booking. Here's a quick confirmation
                                 of your booking.<br/>
@@ -99,7 +90,7 @@ if ($userLoggedIn && isset($_POST['register'])) {
                 alert('Message could not be sent.');
                 </script>
                 ";
-                
+
             }
 
             exit;
@@ -108,8 +99,6 @@ if ($userLoggedIn && isset($_POST['register'])) {
         }
     }
 } elseif (!$userLoggedIn && isset($_POST['register'])) {
-    // If the user is not logged in and tries to submit the form,
-    // redirect them to the login page
     header("Location: ../user/login.php");
     exit;
 }
@@ -117,12 +106,14 @@ if ($userLoggedIn && isset($_POST['register'])) {
 
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Birthday Packages</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.materialdesignicons.com/2.1.19/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <style>
         body {
@@ -132,108 +123,125 @@ if ($userLoggedIn && isset($_POST['register'])) {
         .btn.btn-sm.btn-light.active:hover {
             background: white;
         }
-        
+
         .list-group-item:first-child {
             border-top-left-radius: 0rem;
             border-top-right-radius: 0rem;
         }
 
-        .list-group-item.active{
+        .list-group-item.active {
             border-color: #00125100;
         }
     </style>
 </head>
+
 <body>
 
-<div class="container">
-    <!-- Display package details -->
-    <div class="row">
-        <div class="col-md-8 p-0" style="margin-bottom: 20px;"> <!-- border:1px solid rgba(0,0,0,.125) -->
-            <div class="float-left bg-white">
-                <h5 class="h5 text-uppercase mb-5 pt-3 pl-3 pr-3">
-                    <span class="float-left text-capitalize"><?php echo $row['service_type']?></span>
-                    <span class="float-right text-capitalize">Price: <?php echo $row['price']?></span>
-                </h5>
-                <img src="../admin-panel/<?php echo $row['image']?>" style="width:100%; max-height:500px; " alt="">
+    <div class="container">
 
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-action bg-danger flex-column align-items-start active">
-                        <div class="d-flex w-100 justify-content-between">
-                            <h5 class="mb-1 pt-2 pb-2">FUNCTIONS AND SERVICES</h5>
-                        </div>
-                    </li>
+        <div class="row">
+            <div class="col-md-8 p-0" style="margin-bottom: 20px;">
+                <div class="float-left bg-white">
+                    <h5 class="h5 text-uppercase mb-5 pt-3 pl-3 pr-3">
+                        <span class="float-left text-capitalize">
+                            <?php echo $row['service_type'] ?>
+                        </span>
+                        <span class="float-right text-capitalize">Price:
+                            <?php echo $row['price'] ?>
+                        </span>
+                    </h5>
+                    <img src="../admin-panel/<?php echo $row['image'] ?>" style="width:100%; max-height:500px; " alt="">
 
-                    <?php
-                    // Fetch features for the current package
-                    $service_type = $row['service_type'];
-                    $features_query = "SELECT * FROM features_list WHERE service_type = '$service_type'";
-                    $features_result = mysqli_query($connection, $features_query);
-                    ?>
-
-                    <?php while ($feature = mysqli_fetch_assoc($features_result)) : ?>
-                        <li class="list-group-item list-group-item-action flex-column align-items-start">
+                    <ul class="list-group">
+                        <li
+                            class="list-group-item list-group-item-action bg-danger flex-column align-items-start active">
                             <div class="d-flex w-100 justify-content-between">
-                                <h5 class="mb-1"><i class="mdi mdi-check mr-3"></i><?php echo $feature['title']; ?></h5>
+                                <h5 class="mb-1 pt-2 pb-2">FUNCTIONS AND SERVICES</h5>
                             </div>
-                            <p class="mb-1 ml-3 text-capitalize"><?php echo $feature['description']; ?></p>
                         </li>
-                    <?php endwhile; ?>
-                </ul>
-            </div>
-        </div><!-- end of col-md-8 p-0 pl-3 -->
 
-        <?php if ($canBookPackage): ?>
-            <!-- Display booking form if user is logged in -->
-            <div class="col-md-4" style="margin-bottom: 20px;">
-                <form action="" method="post" style="background: white;padding: 20px;">
-                    <h5 class="h5 text-center mb-3 m-0">Birthday Planning Starts Here</h5>
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="user_name" placeholder="Name" id="user_name" Required>
-                    </div>
+                        <?php
 
-                    <div class="form-group">
-                        <input type="number" id="user_phone" class="form-control" name="user_phone" placeholder="Phone number" Required>
-                    </div>
+                        $service_type = $row['service_type'];
+                        $features_query = "SELECT * FROM features_list WHERE service_type = '$service_type'";
+                        $features_result = mysqli_query($connection, $features_query);
+                        ?>
 
-                    <div class="form-group">
-                        <input type="email" class="form-control" name="user_email" id="user_email" placeholder="youremail@gmail.com" Required>
-                    </div>
-
-                    <div class="form-group">
-                        <select class="custom-select form-control" id="venue" name="venue" Required>
-                            <option value="">Select Venue</option>
-                            <option value="Cremo Coffee">Cremo Coffee</option>
-                            <option value="Coffee Express">Coffee Express</option>
-                            <option value="The Coffee Club">The Coffee Club</option>
-                            <!-- Add more options as needed -->
-                        </select>
-                    </div>
-
-                    <div class="form-row">
-                        <div class="input-group col-md-12">
-                            <input type="date" class="form-control" name="date" data-provide="datepicker" id="date" placeholder="Birthday Date" Required>
-                        </div>
-                    </div>
-
-                    <div class="text-center mt-3">
-                        <input type="hidden" name="booking_id" value="<?php echo $row['id']?>">
-                        <button type="submit" name="register" class="btn btn-success btn-sm text-uppercase font-weight-bold" style="margin-top: -5px;">Book Now</button>
-                    </div>
-                </form>
-            </div>
-        <?php else: ?>
-            <!-- Display a message prompting the user to log in to book the package -->
-            <div class="col-md-4" style="margin-bottom: 20px;">
-                <div class="alert alert-danger" role="alert">
-                    Please <a href="../user/login.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="alert-link">log in</a> to book this service.
+                        <?php while ($feature = mysqli_fetch_assoc($features_result)): ?>
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1"><i class="mdi mdi-check mr-3"></i>
+                                        <?php echo $feature['title']; ?>
+                                    </h5>
+                                </div>
+                                <p class="mb-1 ml-3 text-capitalize">
+                                    <?php echo $feature['description']; ?>
+                                </p>
+                            </li>
+                        <?php endwhile; ?>
+                    </ul>
                 </div>
             </div>
-        <?php endif; ?>
-    </div>
-</div><!-- end of container -->
 
+            <?php if ($canBookPackage): ?>
+
+                <div class="col-md-4" style="margin-bottom: 20px;">
+                    <form action="" method="post" style="background: white;padding: 20px;">
+                        <h5 class="h5 text-center mb-3 m-0">Birthday Planning Starts Here</h5>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="user_name" placeholder="Name" id="user_name"
+                                Required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="number" id="user_phone" class="form-control" name="user_phone"
+                                placeholder="Phone number" Required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="user_email" id="user_email"
+                                placeholder="youremail@gmail.com" Required>
+                        </div>
+
+                        <div class="form-group">
+                            <select class="custom-select form-control" id="venue" name="venue" Required>
+                                <option value="">Select Venue</option>
+                                <option value="Cremo Coffee">Cremo Coffee</option>
+                                <option value="Coffee Express">Coffee Express</option>
+                                <option value="The Coffee Club">The Coffee Club</option>
+
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="input-group col-md-12">
+                                <input type="date" class="form-control" name="date" data-provide="datepicker" id="date"
+                                    placeholder="Birthday Date" min="<?php echo $minDate; ?>" Required>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <input type="hidden" name="booking_id" value="<?php echo $row['id'] ?>">
+                            <button type="submit" name="register"
+                                class="btn btn-success btn-sm text-uppercase font-weight-bold"
+                                style="margin-top: -5px;">Book Now</button>
+                        </div>
+                    </form>
+                </div>
+            <?php else: ?>
+
+                <div class="col-md-4" style="margin-bottom: 20px;">
+                    <div class="alert alert-danger" role="alert">
+                        Please <a href="../user/login.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>"
+                            class="alert-link">log in</a> to book this service.
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
 
 </body>
+
 </html>
 
 <?php mysqli_close($connection); ?>

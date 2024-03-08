@@ -1,4 +1,3 @@
-
 <?php
 include 'config/dbconn.php';
 
@@ -6,8 +5,7 @@ if (isset($_POST["id"])) {
     $output = '';
     $package_id = $_POST["id"];
 
-   // $query = "SELECT * FROM features_list WHERE service_type = (SELECT service_type FROM wedding_service WHERE id = $package_id)";
-    //$result = mysqli_query($connection, $query);
+
 
     $query1 = "SELECT * FROM features_list WHERE service_type = (SELECT service_type FROM birthday_service WHERE id = $package_id)";
     $result1 = mysqli_query($connection, $query1);

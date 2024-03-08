@@ -30,7 +30,7 @@
     <style>
         :root {
 
-            /**colors*/
+
             --homecolor1: rgb(150, 81, 81);
             --homecolor2: rgb(150, 81, 81);
             --homecolor3: rgb(150, 81, 81);
@@ -40,7 +40,7 @@
             --black: rgb(3, 0, 0);
             --foot-bg: rgb(187, 118, 118);
 
-            /* font size */
+
             --foot-txt-size: 1.6rem;
             --foot-link-size: 1.9rem;
             --foot-list-tsize: 2.3rem;
@@ -54,7 +54,7 @@
 
         .blog-card {
             border: 2px solid black;
-            /* border-radius: 20%; */
+
             border-top-left-radius: 50px;
             border-top-right-radius: 50px;
             background-color: white;
@@ -71,15 +71,11 @@
 
 <body>
 
-    <!--navbar-->
+
     <?php
     include "../connection/navuser.php";
     ?>
 
-
-    <!-- 
-        - #BLOG
-      -->
 
     <div class="container">
         <div class="row">
@@ -96,7 +92,6 @@
                         <?php
                         include "../connection/config.php";
 
-                        /* Calculate Offset Code */
                         $limit = 4;
                         if (isset($_GET['page'])) {
                             $page = $_GET['page'];
@@ -105,11 +100,6 @@
                         }
                         $offset = ($page - 1) * $limit;
 
-                        // $sql = "SELECT post.post_id, post.title, post.description,post.post_date,post.author,
-                        // category.category_name,user.username,post.category,post.post_img FROM post
-                        // LEFT JOIN category ON post.category = category.category_id
-                        // LEFT JOIN user ON post.author = user.user_id
-                        // ORDER BY post.post_id DESC LIMIT {$offset},{$limit}";
                         $sql = "SELECT `id`, `title`, `description`, `image`, `location`, 
                         `status`, `event_date`, `event_type`, `date_created` FROM `review`
                          ORDER BY id DESC LIMIT {$offset},{$limit}";
@@ -152,7 +142,7 @@
                                                     <ion-icon name="calendar-clear-outline" aria-hidden="true"></ion-icon>
 
                                                     <span class="span">
-                                                        <?php echo $row['event_date']; ?>
+                                                        <?php echo $row['date_created']; ?>
                                                     </span>
                                                 </time>
 
@@ -191,12 +181,6 @@
                     </ul>
 
 
-                    <!-- <a href="#" class="btn">
-                        <span class="span">Read More</span>
-
-                        <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
-                    </a> -->
-
                 </div>
             </section>
         </div>
@@ -204,7 +188,7 @@
 
     <div class="pagnav">
         <?php
-        // show pagination
+
         $sql1 = "SELECT * FROM `review` ";
         $result1 = mysqli_query($connection, $sql1) or die("Query Failed.");
 
@@ -221,7 +205,6 @@
             Previous
         </a>
     </li>';
-                // echo '<li><a href="blog_post.php?page=' . ($page - 1) . '">Prev</a></li>';
             }
             for ($i = 1; $i <= $total_page; $i++) {
                 if ($i == $page) {
@@ -230,7 +213,7 @@
                     $active = "";
                 }
 
-                // echo' <li> <a href="#" class="active">5</a></li>';
+
                 echo '<li class="' . $active . '"><a href="blog_post.php?page=' . $i . '">' . $i . '</a></li>';
             }
             if ($total_page > $page) {
@@ -238,7 +221,7 @@
                 echo '<li><a href="blog_post.php?page=' . ($page + 1) . '" class="next"> Next
             <i class="fa fa-chevron-right"></i>
         </a></li>';
-                // echo '<li><a href="index.php?page=' . ($page + 1) . '">Next</a></li>';
+
             }
 
             echo '</ul>';
@@ -247,56 +230,15 @@
     </div>
 
 
-    <!-- <div class="pagnav">
-        <ul class="pagination modal-4">
-            <li><a href="#" class="prev">
-                    <i class="fa fa-chevron-left"></i>
-                    Previous
-                </a>
-            </li>
-            <li><a href="#">1</a></li>
-            <li> <a href="#">2</a></li>
-            <li> <a href="#">3</a></li>
-            <li> <a href="#">4</a></li>
-            <li> <a href="#" class="active">5</a></li>
-            <li> <a href="#">6</a></li>
-            <li> <a href="#">7</a></li>
-            <li><a href="#" class="next"> Next
-                    <i class="fa fa-chevron-right"></i>
-                </a></li>
-        </ul><br>
-    </div> -->
-    <!-- <div id="pagnav">
-       
-        <ul class="pagination">
-            <li class="page-item disabled">
-                <span class="page-link">Previous</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-                <span class="page-link">2</span>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-      
-    </div> -->
 
 
-    <!--  #FOOTER-->
+
     <?php include "../connection/footer.php"; ?>
 
-
-    <!-- 
-    - ionicon link
-  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
-    <!-- Make sure to include Bootstrap JS at the end of the body -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 

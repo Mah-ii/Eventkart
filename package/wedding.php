@@ -8,22 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Demo</title>
 
-    <!-- bootstrap libraries -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-
-    <!-- extarnal css -->
     <link rel="stylesheet" href="wed1.css">
 
 
     <style>
         :root {
 
-            /**colors*/
+           
             --homecolor1: rgb(150, 81, 81);
             --homecolor2: rgb(225, 135, 125);
             --homecolor3: rgb(170, 112, 105);
@@ -32,7 +29,7 @@
 
         .user-box a {
             padding: 8px 16px;
-            background-color:var(--homecolor1); 
+            background-color: var(--homecolor1);
             border: none;
             color: black;
             text-align: center;
@@ -45,13 +42,12 @@
         }
 
         .user-box a:hover {
-            background-color: var(--white); 
+            background-color: var(--white);
         }
 
 
         .review {
             width: 100%;
-            /* height: 80vh; */
             padding: 70px 0;
         }
 
@@ -75,17 +71,17 @@
             flex-wrap: wrap;
         }
 
-     
+
         .reviews {
-            width: 30%; /* Adjust as needed */
+            width: 30%;
             height: 35%;
-            border: 1px solid #ccc; 
-            padding: 10px; 
-            margin: 10px; 
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
             margin-top: 3rem;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
             border-radius: 8px;
-           
+
         }
 
 
@@ -93,11 +89,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            transition:  0.3s;
-            
+            transition: 0.3s;
+
         }
 
-        .head-review:hover{
+        .head-review:hover {
             transform: translateY(-50px);
         }
 
@@ -107,23 +103,23 @@
             border: black solid 3px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, .25);
             margin-bottom: 2rem;
-            
+
         }
 
-        .card-header{
+        .card-header {
             display: flex;
             justify-content: center;
             align-items: center;
         }
 
-        .name-review{
+        .name-review {
             font-weight: bold;
             font-family: cursive;
             color: #fff;
             font-size: 1.2rem;
         }
 
-        .place-review{
+        .place-review {
             font-weight: bold;
             font-style: italic;
             color: #fff;
@@ -134,11 +130,11 @@
             background-color: rgb(77, 35, 30);
             padding: 2.5rem;
             border-radius: 12px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            
+           
+
         }
 
-        .desc-review{
+        .desc-review {
             height: 35vh;
             line-height: 22px;
             transition: 0.3s;
@@ -146,14 +142,13 @@
             color: whitesmoke;
         }
 
-         /* Media Query for small screens */
-         @media (max-width: 767px) {
+    
+        @media (max-width: 767px) {
             .reviews {
-                width: calc(100% - 20px); /* Take full width on small screens */
+                width: calc(100% - 20px);
+              
             }
         }
-
-
     </style>
 </head>
 
@@ -167,20 +162,19 @@
     $result = mysqli_query($connection, $query);
     ?>
 
-    <!--navbar-->
     <?php
     include "../connection/navuser.php";
     ?>
 
 
-    <!-- main home -->
+   
     <section class="fline">
         <div class="intro">
             <h1>EventKart</h1>
             <h3>Wedding Planners & Event Organizers!</h3>
         </div>
     </section>
-    <!-- about section -->
+ 
     <section class="about">
         <div class="imggg">
             <div class="imgg fimg"><img src="../image/wed1.jpeg" alt=""></div>
@@ -197,14 +191,14 @@
         </div>
     </section>
 
-    <!------------------------services-------------------->
     <section class="service">
         <div class="container-fluid custom-container">
             <div class="row">
                 <div class="col-lg-12">
 
                     <div class="title">
-                        <h1 style="color:black;">Our<span style="color: rgb(77, 35, 30); font-family: mv boli;" >Wedding</span> Package</h1>
+                        <h1 style="color:black;">Our<span
+                                style="color: rgb(77, 35, 30); font-family: mv boli;">Wedding</span> Package</h1>
                     </div>
 
                     <?php while ($row = mysqli_fetch_assoc($result)): ?>
@@ -217,7 +211,7 @@
                                         alt=""></li>
                                 <li class="list-group-item text-center"><b>THIS PACKAGE INCLUDES:</b></li>
                                 <?php
-                                // Fetch features for the current package
+                           
                                 $service_type = $row['service_type'];
                                 $features_query = "SELECT * FROM features_list WHERE service_type = '$service_type'";
                                 $features_result = mysqli_query($connection, $features_query);
@@ -236,58 +230,59 @@
                             </ul>
                         </div>
                     <?php endwhile; ?>
-                </div><!-- end of col-lg-12 -->
-            </div><!-- end of row -->
-        </div><!-- end of container-fluid -->
+                </div>
+            </div>
+        </div>
 
     </section>
 
     <!------ vennu -------->
     <section class="venu" style="margin-top: 25rem; display:flex; justify-content:center;">
 
-    <div class="venuu"> 
-        <div class="title">
-            <h1 style="color:black;">Ve<span style="color: rgb(77, 35, 30); font-family: mv boli;" >Nue</span></h1>
-        </div>
-        <div class="venuimg" style="color:black; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;"> 
-            <?php
-        
-            $sql = "SELECT `id`, `venue_name`, `place`, `category`, `image`, `location` FROM `venue` WHERE category='Wedding' ORDER BY id DESC LIMIT 3 ";
+        <div class="venuu">
+            <div class="title">
+                <h1 style="color:black;">Ve<span style="color: rgb(77, 35, 30); font-family: mv boli;">Nue</span></h1>
+            </div>
+            <div class="venuimg"
+                style="color:black; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;">
+                <?php
 
-            $result = mysqli_query($connection, $sql) or die("Query Failed. : Recent Post");
-            if (mysqli_num_rows($result) > 0) {
-                while ($row = mysqli_fetch_assoc($result)) {
+                $sql = "SELECT `id`, `venue_name`, `place`, `category`, `image`, `location` FROM `venue` WHERE category='Wedding' ORDER BY id DESC LIMIT 3 ";
 
-                    ?>
+                $result = mysqli_query($connection, $sql) or die("Query Failed. : Recent Post");
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
 
-                    <div class="vimg vfimg" style="padding: .5rem;">
-                        <img style=" height: 25rem; width: 20rem;" src="../admin-panel/<?php echo $row['image']; ?>" alt="venu img">
-                        <div>
-                            <h3 style="font-size: 1rem; text-align:center;">
-                                <?php echo $row['venue_name']; ?>
-                            </h3>
-                            <a href="<?php echo $row['location']; ?>">
-                                <button>More Info</button></a>
-                            <!-- <a href="https://grandsylhet.com/"><button class="btn">More Info</button></a> -->
+                        ?>
+
+                        <div class="vimg vfimg" style="padding: .5rem;">
+                            <img style=" height: 25rem; width: 20rem;" src="../admin-panel/<?php echo $row['image']; ?>"
+                                alt="venu img">
+                            <div>
+                                <h3 style="font-size: 1rem; text-align:center;">
+                                    <?php echo $row['venue_name']; ?>
+                                </h3>
+                                <a href="<?php echo $row['location']; ?>">
+                                    <button>More Info</button></a>
+                                <!-- <a href="https://grandsylhet.com/"><button class="btn">More Info</button></a> -->
+                            </div>
                         </div>
-                    </div>
-                <?php }
-            } ?>
+                    <?php }
+                } ?>
+            </div>
+
+
+
         </div>
-
-
-
-</div>
     </section>
 
-    <!-- card gallery -->
 
     <section class="cardDesing" style="margin: 8rem;">
         <h1>Invitation Card</h1>
 
         <div class="cdimg">
             <?php
-            $sql = "SELECT `id`, `name`, `title`, `image`, `category` FROM `gallery` WHERE category='Invitation' ORDER BY id DESC LIMIT 4 ";
+            $sql = "SELECT `id`, `name`, `title`, `image`, `category` FROM `gallery` WHERE category='Wed_invitation' ORDER BY id DESC LIMIT 4 ";
 
             $result = mysqli_query($connection, $sql) or die("Query Failed. : Recent Post");
             if (mysqli_num_rows($result) > 0) {
@@ -295,7 +290,7 @@
                     ?>
                     <div>
                         <img src="../admin-panel/<?php echo $row['image']; ?>">
-                        <!-- <img src="../image/wed1.jpeg"> -->
+                 
                     </div>
                 <?php }
             } ?>
@@ -303,26 +298,21 @@
 
     </section>
 
-
-<!--Review-->
-
-
     <div class="review">
         <div class="card-header">
-        <h1>Customer<span>Review</span></h1>
+            <h1>Customer<span>Review</span></h1>
         </div>
         <div class="reviews-container">
             <?php
-            $category = "Wedding"; 
+            $category = "Wedding";
 
             $query = "SELECT * FROM rev WHERE category = '$category' LIMIT 3";
             $result = mysqli_query($connection, $query);
 
-            // Check if there are any reviews
-            if(mysqli_num_rows($result) > 0) {
-                
-                while($row = mysqli_fetch_assoc($result)) {
-                    
+            if (mysqli_num_rows($result) > 0) {
+
+                while ($row = mysqli_fetch_assoc($result)) {
+
                     echo '<div class="reviews">';
                     echo '<div class="head-review">';
                     echo '<img src="' . $row['image'] . '" width="250px">';
@@ -330,13 +320,13 @@
                     echo '<div class="body-review">';
                     echo '<div class="name-review">' . $row['user_name'] . '</div>';
                     echo '<div class="place-review">' . $row['user_email'] . '</div>';
-                
+
                     echo '<div class="desc-review">' . $row['review'] . '</div>';
                     echo '</div>';
                     echo '</div>';
                 }
             } else {
-                
+
                 echo 'No reviews found for the category: ' . $category;
             }
 
@@ -345,23 +335,14 @@
         </div>
     </div>
 
-
-
-
-    <!--  #FOOTER-->
     <?php include "../connection/footer.php"; ?>
 
-    <!-- javascript  -->
+
     <script src="../script.js"></script>
 
-    <!-- 
-    - ionicon link
-  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-
-    <!-- Make sure to include Bootstrap JS at the end of the body -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>

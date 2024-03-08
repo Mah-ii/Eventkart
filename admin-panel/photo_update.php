@@ -39,16 +39,7 @@ $row = mysqli_fetch_assoc($result);
                     <div class="mb-3">
                         <p class="text-center fw-bold fs-3 text-warning">Update Photo Details:</p>
                     </div>
-                    <!-- <div class="mb-3">
-                        <label class="form-label">Photo Name:</label>
-                        <input type="text" name="Pname" class="form-control" value="<?php echo $row['name'] ?>"
-                            required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Product Title:</label>
-                        <input type="text" name="Ptitle" class="form-control" value="<?php echo $row['title'] ?>"
-                            required>
-                    </div> -->
+
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Image Preview:</label>
                         <img src="<?php echo $row['image']; ?>" height="100"><br>
@@ -61,10 +52,9 @@ $row = mysqli_fetch_assoc($result);
                     <div class="mb-3">
                         <label class="form-label">Select Package Category</label>
                         <select class="form-select" name="Pages">
-                            <!-- <option disabled> Select Category</option> -->
+                         
                             <?php
                             if ($row['category'] == "Wedding") {
-                                // $selected = "selected";
                                 echo "<option disabled> Select Category</option>";
                                 echo "<option selected value='Wedding'>Wedding</option>";
                                 echo "<option value='Birthday'>Birthday</option>";
@@ -88,8 +78,7 @@ $row = mysqli_fetch_assoc($result);
                                 echo "<option value='Wed_invitation'>Wed_invitation</option>";
                                 echo "<option value='Birth_invitation'>Birth_invitation</option>";
                                 echo "<option value='Others'>Others</option>";
-                            } 
-                            elseif ($row['category'] == "Wed_invitation'") {
+                            } elseif ($row['category'] == "Wed_invitation") {
                                 echo " <option disabled> Select Category</option>";
                                 echo "<option value='Wedding'>Wedding</option>";
                                 echo "<option value='Birthday'>Birthday</option>";
@@ -97,7 +86,7 @@ $row = mysqli_fetch_assoc($result);
                                 echo "<option selected value='Wed_invitation'>Wed_invitation</option>";
                                 echo "<option value='Birth_invitation'>Birth_invitation</option>";
                                 echo "<option value='Others'>Others</option>";
-                            }elseif ($row['category'] == "Birth_invitation") {
+                            } elseif ($row['category'] == "Birth_invitation") {
                                 echo " <option disabled> Select Category</option>";
                                 echo "<option value='Wedding'>Wedding</option>";
                                 echo "<option value='Birthday'>Birthday</option>";
@@ -105,7 +94,7 @@ $row = mysqli_fetch_assoc($result);
                                 echo "<option value='Wed_invitation'>Wed_invitation</option>";
                                 echo "<option selected value='Birth_invitation'>Birth_invitation</option>";
                                 echo "<option value='Others'>Others</option>";
-                            }elseif ($row['category'] == "Others") {
+                            } elseif ($row['category'] == "Others") {
                                 echo " <option disabled> Select Category</option>";
                                 echo "<option value='Wedding'>Wedding</option>";
                                 echo "<option value='Birthday'>Birthday</option>";
@@ -122,8 +111,7 @@ $row = mysqli_fetch_assoc($result);
                                 echo "<option value='Birth_invitation'>Birth_invitation</option>";
                                 echo "<option value='Others'>Others</option>";
                             }
-                            // echo "<option {$selected} value='{$row['category']}'>{$row['category']}</option>";
-                            
+
 
                             ?>
                         </select>
@@ -154,8 +142,7 @@ $row = mysqli_fetch_assoc($result);
 
 if (isset($_POST['update'])) {
 
-    // $photo_name = $_POST['Pname'];
-    // $title = $_POST['Ptitle'];
+
     $photo_image = $_FILES['image'];
     $photo_category = $_POST['Pages'];
 

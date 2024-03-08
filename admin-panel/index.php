@@ -11,18 +11,17 @@ if (isset($_POST['login'])) {
   $admin_email = $_POST['admin_email'];
   $admin_password = $_POST['admin_password'];
 
-  // Prepare the query
+  
   $query = "SELECT * FROM `admin` WHERE `admin_email` = ? AND `admin_password` = ?";
   $stmt = mysqli_prepare($connection, $query);
 
-  // Bind parameters
+  
   mysqli_stmt_bind_param($stmt, "ss", $admin_email, $admin_password);
 
-  // Execute the query
+  
   mysqli_stmt_execute($stmt);
   $result = mysqli_stmt_get_result($stmt);
 
-  // Check if a row is returned
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
     $_SESSION['adminLogin'] = true;

@@ -49,7 +49,7 @@
                     <div class="mb-3">
                         <label class="form-label">Select Package Category</label>
                         <select class="form-select" name="Pages">
-                            <!-- <option disabled> Select Category</option> -->
+
                             <?php
                             if ($row['category'] == "Bakeries") {
                                 echo " 
@@ -182,8 +182,7 @@
                                 <option value='Videography'>Videography</option>
                                 ";
                             }
-                            // echo "<option {$selected} value='{$row['category']}'>{$row['category']}</option>";
-                            
+
                             ?>
                         </select>
                     </div>
@@ -192,14 +191,7 @@
                         <input type="text" name="Phone" class="form-control" value="<?php echo $row['phone'] ?>"
                             required>
                     </div>
-                    <!-- <div class="mb-3">
-                        <label for="formFile" class="form-label">Image Preview:</label>
-                        <img src="<?php echo $row['image']; ?>" height="100"><br>
-                    </div>
-                    <div class="mb-3">
-                        <label for="formFile" class="form-label">Add Image:</label>
-                        <input class="form-control" name="image" type="file" id="formFile">
-                    </div> -->
+
 
                     <div class="mb-3">
                         <label class="form-label">Email:</label>
@@ -247,20 +239,12 @@ if (isset($_POST['update'])) {
     $email = $_POST['Email'];
     $facebook = $_POST['Facebook'];
     $instragram = $_POST['Instragram'];
-    // $photo_category = $_POST['Pages'];
-    // echo "<pre>";
-    // print_r($product_image);
-    // echo "</pre>";
-    // $image_loc = $_FILES['image']['tmp_name'];
-    // $image_name = $_FILES['image']['name'];
-    // $img_des = "Venueimage/" . $image_name;
-    // move_uploaded_file($image_loc, "Venueimage/" . $image_name);
+
 
 
     $insert = "UPDATE `partners` SET `com_name`='$company_name',`owner_name`='$owner_name',`category`='$category',`phone`='$phone',`email`='$email',`facebook`='$facebook',`instragram`='$instragram' WHERE id=$id";
 
 
-    //$insert5 = "UPDATE venue SET `venue_name`='$venue_name',`place`='$venue_place', `category`='$venue_category',`image`='$img_des',`location`='$venue_location' WHERE id=$id";
 
     $query = mysqli_query($connection, $insert);
 

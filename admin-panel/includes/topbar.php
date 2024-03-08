@@ -13,30 +13,8 @@
       </a>
 
       <div class="fw-bold text-secondary d-md-none d-block">Admin Panel</div>
-
-
-      <!-- <div class="ms-auto d-flex align-items-center">
-
-              <div class="dropdown">
-
-                <a class="nav-link dropdown-toggle py-1 px-3 rounded-1" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <i class="fas fa-user-circle me-1"></i>Admin
-                </a>
-
-                <ul class="dropdown-menu dropdown-menu-end">
-                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-address-card me-2"></i>Profile</a></li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-gear me-2"></i>Account</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="#"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a>
-                  </li>
-                </ul>
-              </div>
-            </div> -->
       <div class="ms-auto d-flex align-items-center">
-        <a class="nav-link py-1 px-3 rounded-1" href="#"><i class="fas fa-user-circle me-1"></i>Admin</a>
-        <!-- <a class="nav-link py-1 px-3 rounded-1" href="logout.php"><i class="fa-solid fa-right-from-bracket me-2"></i>Logout</a> -->
+
         <form action="logout.php" method="post">
           <button type="submit" name="logout" class="btn"><i
               class="fa-solid fa-right-from-bracket me-2"></i>Logout</button>

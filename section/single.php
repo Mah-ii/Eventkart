@@ -53,7 +53,7 @@
 
         .blog-card {
             border: 2px solid black;
-            /* border-radius: 20%; */
+
             border-top-left-radius: 50px;
             border-top-right-radius: 50px;
             background-color: white;
@@ -65,9 +65,7 @@
         }
 
         .card-banner {
-            /* display: flex;
-            justify-content: center; 
-            align-items: center;  */
+
             width: 550px;
             height: 300px;
             border-top-left-radius: 50px;

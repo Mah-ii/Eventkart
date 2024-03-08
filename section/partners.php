@@ -28,8 +28,8 @@
     <style>
         :root {
 
-           /*colors*/
-           --homecolor1: rgb(150, 81, 81);
+            /*colors*/
+            --homecolor1: rgb(150, 81, 81);
             --homecolor2: rgb(225, 135, 125);
             --homecolor3: rgb(150, 81, 81);
             --white: #fff;
@@ -48,8 +48,8 @@
 
         }
 
-       
-            
+
+
         .user-box a {
             padding: 8px 16px;
             background-color: var(--homecolor1);
@@ -65,9 +65,9 @@
         }
 
         .user-box a:hover {
-             background-color: var(--white);
+            background-color: var(--white);
         }
-        
+
         .sub-menu-wrap .sub-menu {
             background: var(--homecolor2);
             padding: 20px;
@@ -404,7 +404,7 @@
 
         </div>
     </div>
-    <!-- -----Decorations---- -->
+    
     <div class="container about-container">
         <h2 class="about-heading">Decorations</h2>
     </div>
@@ -559,17 +559,12 @@
     </div>
 
 
-    <!--  #FOOTER-->
     <?php include "../connection/footer.php"; ?>
 
-    <!-- 
-    - ionicon link
-  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 
-    <!-- Make sure to include Bootstrap JS at the end of the body -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 

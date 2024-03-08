@@ -57,6 +57,7 @@
         .user-box a:hover {
             background-color: var(--white);
         }
+
         .sub-menu-wrap .sub-menu {
             background: var(--homecolor2);
             padding: 20px;
@@ -92,7 +93,6 @@
 
         .reviews {
             width: 30%;
-            /* Adjust as needed */
             height: 35%;
             border: 1px solid #ccc;
             padding: 10px;
@@ -151,7 +151,7 @@
             background-color: #fac031;
             padding: 2.5rem;
             border-radius: 12px;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 
         }
 
@@ -163,11 +163,11 @@
             color: black;
         }
 
-        /* Media Query for small screens */
+
         @media (max-width: 767px) {
             .reviews {
                 width: calc(100% - 20px);
-                /* Take full width on small screens */
+
             }
         }
     </style>
@@ -186,12 +186,11 @@
     $result = mysqli_query($connection, $query);
 
     ?>
-    <!--navbar-->
+
     <?php include "../connection/navuser.php"; ?>
 
 
 
-    <!--main home-->
 
 
     <div class="main">
@@ -211,7 +210,7 @@
                             Experience the extraordinary, crafted exclusively for you."
                         </p>
                         <div class="main_btn">
-                            <a href="#Order" class="book_btn">Get a book<i class="fa-solid fa-angle-right"></i></a>
+                            <a href="" class="book_btn">Get a book<i class="fa-solid fa-angle-right"></i></a>
 
                         </div>
                     </div>
@@ -226,7 +225,7 @@
         </div>
 
     </div>
-    <!------------------------services-------------------->
+
 
     <div class="container" style="margin-top: 50px;">
         <div class="row">
@@ -248,7 +247,7 @@
                             </li>
                             <li class="list-group-item text-center"><b>THIS PACKAGE INCLUDES:</b></li>
                             <?php
-                            // Fetch features for the current package
+
                             $service_type = $row['service_type'];
                             $features_query = "SELECT * FROM features_list WHERE service_type = '$service_type'";
                             $features_result = mysqli_query($connection, $features_query);
@@ -268,11 +267,11 @@
                     </div>
                 </div>
             <?php endwhile; ?>
-        </div><!-- end of row -->
-    </div><!-- end of container -->
+        </div>
+    </div>
 
 
-    <!------------------E-invitation------------------>
+
     <section class="invite" id="invite">
         <div class="title1">
             <h1>Card<span>Design</span></h1>
@@ -280,7 +279,7 @@
         </div>
         <div class="invitation-row">
             <?php
-            $sql = "SELECT `id`, `name`, `title`, `image`, `category` FROM `gallery` WHERE category='Invitation' ORDER BY id DESC LIMIT 6 ";
+            $sql = "SELECT `id`, `name`, `title`, `image`, `category` FROM `gallery` WHERE category='Birth_invitation' ORDER BY id DESC LIMIT 5 ";
 
             $result = mysqli_query($connection, $sql) or die("Query Failed. : Recent Post");
             if (mysqli_num_rows($result) > 0) {
@@ -295,7 +294,7 @@
     </section>
 
 
-    <!----------------------------venue Section-------------->
+
     <div class="container">
         <section class="venue" id="venue">
             <div class="title1">
@@ -339,7 +338,6 @@
     </div>
 
 
-    <!--Review-->
 
     <div class="review">
         <div class="card-header">
@@ -352,7 +350,7 @@
             $query = "SELECT * FROM rev WHERE category = '$category' LIMIT 3";
             $result = mysqli_query($connection, $query);
 
-            // Check if there are any reviews
+
             if (mysqli_num_rows($result) > 0) {
 
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -380,29 +378,13 @@
         </div>
     </div>
 
-
-
-
-
-
-    <!--  #FOOTER-->
     <?php include "../connection/footer.php"; ?>
 
-
-
-    <!-- </section> -->
-
-    <!-- javascript  -->
     <script src="../script.js"></script>
 
-    <!-- 
-    - ionicon link
-  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-
-    <!-- Make sure to include Bootstrap JS at the end of the body -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>

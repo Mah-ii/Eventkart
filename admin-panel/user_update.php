@@ -4,34 +4,36 @@ include 'config/dbconn.php';
 $id = $_GET['id'];
 
 
-$insert="SELECT * FROM users WHERE id='$id' ";
+$insert = "SELECT * FROM users WHERE id='$id' ";
 $result = mysqli_query($connection, $insert);
 
 $row = mysqli_fetch_assoc($result);
 
 
 
-?> 
+?>
 
 
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Update User Details</title>
-    
 
 
 
 
 
-<style>
+
+    <style>
         * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
+
         .login {
             padding-top: 1rem;
         }
@@ -48,7 +50,7 @@ $row = mysqli_fetch_assoc($result);
             font-size: 3rem;
             font-weight: 700;
             text-align: center;
-           
+
         }
 
         .input-box {
@@ -73,12 +75,12 @@ $row = mysqli_fetch_assoc($result);
 
             .login {
                 padding-top: 0;
-                
+
             }
 
             .login h1 {
                 font-size: 2rem;
-            
+
             }
 
             .input-box,
@@ -122,22 +124,25 @@ $row = mysqli_fetch_assoc($result);
 </head>
 
 <body>
-<section class="login">
+    <section class="login">
         <div class="container">
             <h1 style="margin-bottom:10px">Update User information</h1>
             <form action="" method="post">
                 <div class="form-row py-3">
                     <div class="col-lg-12 py-2">
                         <label for="reguname"><i><b>Full Name :</b></i></label>
-                        <input type="text" class="input-box" name="reguname" value="<?php echo $row['user_name'] ?>" required>
+                        <input type="text" class="input-box" name="reguname" value="<?php echo $row['user_name'] ?>"
+                            required>
                     </div>
                     <div class="col-lg-12 py-2">
                         <label for="regEmail"><i><b>Email Address :</b></i></label>
-                        <input type="email" class="input-box" name="regEmail" value="<?php echo $row['user_email'] ?>" required>
+                        <input type="email" class="input-box" name="regEmail" value="<?php echo $row['user_email'] ?>"
+                            required>
                     </div>
                     <div class="col-lg-12 py-2">
                         <label for="regNum"><i><b>Phone Number:</b></i></label>
-                        <input type="number" class="input-box" name="regNum" value="<?php echo $row['user_number'] ?>" required>
+                        <input type="number" class="input-box" name="regNum" value="<?php echo $row['user_number'] ?>"
+                            required>
                     </div>
                     <div class="col-lg-12 py-2">
                         <button type="submit" id="login" class="btn" name="update" value="update">Update Info</button>
@@ -150,6 +155,7 @@ $row = mysqli_fetch_assoc($result);
 
 
 </body>
+
 </html>
 
 
@@ -163,27 +169,26 @@ if (isset($_POST['update'])) {
     $regNum = $_REQUEST["regNum"];
     $regpass = $_REQUEST["regpass"];
     $regcpass = $_REQUEST["regcpass"];
-    
-    
-    
-      $insert = "update users set user_name='$reguname', user_email='$regEmail', user_number='$regNum', pass='$regpass', conpass='$regcpass' where user_email='$regEmail'";
-    
-    
-    
-      $query = mysqli_query($connection, $insert);
-    
-      if(!$query){
-       // echo "<script> alert('not inserted!!')</script>";
+
+
+
+    $insert = "update users set user_name='$reguname', user_email='$regEmail', user_number='$regNum', pass='$regpass', conpass='$regcpass' where user_email='$regEmail'";
+
+
+
+    $query = mysqli_query($connection, $insert);
+
+    if (!$query) {
+        // echo "<script> alert('not inserted!!')</script>";
         echo "<script> location.href = 'user_update.php'</script>";
-    
-      }
-      else{
-      //  echo "<script> alert('SUCCESSFULLY Updated')</script>";
+
+    } else {
+        //  echo "<script> alert('SUCCESSFULLY Updated')</script>";
         echo "<script> location.href = 'client.php'</script>";
-        
-      }
+
     }
-    
+}
+
 
 
 ?>

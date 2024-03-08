@@ -64,13 +64,13 @@ $row = mysqli_fetch_assoc($result);
                 <div class="font-weight-light text-center mb-3" style="font-size:16px;">
                     <?php echo $row['venue'] ?>
                 </div>
-                <!-- <p class="text-center">
-                    <<?php echo $row['description'] ?>
-                </p> -->
+                
+                    <?php echo $row['description'] ?>
+    
 
-            </div><!-- end of col-md-8 p-0 pl-3 -->
+            </div>
         </div>
-    </div><!-- end of container -->
+    </div>
 
 
 

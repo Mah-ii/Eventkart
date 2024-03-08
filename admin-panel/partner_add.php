@@ -12,21 +12,6 @@ if (isset($_POST['submit'])) {
     $facebook = $_POST['Facebook'];
     $instragram = $_POST['Instragram'];
 
-    // $photo_image = $_FILES['image'];
-    // // $photo_category = $_POST['Pages'];
-    // // echo "<pre>";
-    // // print_r($product_image);
-    // // echo "</pre>";
-    // $image_loc = $_FILES['image']['tmp_name'];
-    // $image_name = $_FILES['image']['name'];
-    // $img_des = "Venueimage/" . $image_name;
-    // move_uploaded_file($image_loc, "Venueimage/" . $image_name);
-
-
-
-
-    //insert product
-
     $sql = "INSERT INTO `partners`(`com_name`, `owner_name`, `category`, `phone`, `email`, `facebook`, `instragram`) VALUES ('$company_name','$owner_name','$category','$phone','$email','$facebook','$instragram')";
 
     mysqli_query($connection, $sql);
@@ -85,10 +70,7 @@ if (isset($_POST['submit'])) {
                             <option value="Videography">Videography</option>
                         </select>
                     </div>
-                    <!-- <div class="mb-3">
-                        <label for="formFile" class="form-label">Add Image:</label>
-                        <input class="form-control" name="image" type="file" id="formFile">
-                    </div> -->
+
 
 
                     <div class="mb-3">

@@ -47,22 +47,17 @@ $result = mysqli_query($connection, $insert);
 
 
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <h2 style="margin-top: 1.5rem;">User's Details</h2>
-                    </div><!-- /.col -->
-
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
+        
         <section class="content">
             <div class="container-fluid">
                 <div class="row">

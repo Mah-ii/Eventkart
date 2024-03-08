@@ -4,20 +4,14 @@ if (isset($_POST['submit'])) {
 
     include 'config/dbconn.php';
 
-    // $photo_name = $_POST['Pname'];
-    // $photo_title = $_POST['Ptitle'];
+    
     $photo_image = $_FILES['image'];
     $photo_category = $_POST['Pages'];
-    // echo "<pre>";
-    // print_r($product_image);
-    // echo "</pre>";
     $image_loc = $_FILES['image']['tmp_name'];
     $image_name = $_FILES['image']['name'];
     $img_des = "Uploadimage/" . $image_name;
     move_uploaded_file($image_loc, "Uploadimage/" . $image_name);
 
-
-    //insert product
     mysqli_query($connection, "INSERT INTO `gallery`(`name`, `title`, `image`, `category`) 
     VALUES ('$photo_name','$photo_title','$img_des','$photo_category')");
 
@@ -52,14 +46,7 @@ if (isset($_POST['submit'])) {
                     <div class="mb-3">
                         <p class="text-center fw-bold fs-3 text-warning">Gallery Photo Add:</p>
                     </div>
-                    <!-- <div class="mb-3">
-                        <label class="form-label">Photo Name:</label>
-                        <input type="text" name="Pname" class="form-control" placeholder="Enter product name">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Product Title:</label>
-                        <input type="text" name="Ptitle" class="form-control" placeholder="enter product price">
-                    </div> -->
+                
                     <div class="mb-3">
                         <label for="formFile" class="form-label">Add Image:</label>
                         <input class="form-control" name="image" type="file" id="formFile">

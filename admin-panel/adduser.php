@@ -1,13 +1,6 @@
 <?php
 include 'config/dbconn.php';
-
-
-
-
-?> 
-
-
-
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +11,6 @@ include 'config/dbconn.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add User</title>
 
-    <!-- Add your existing CSS and external stylesheets here -->
 
     <style>
         * {
@@ -26,6 +18,7 @@ include 'config/dbconn.php';
             margin: 0;
             box-sizing: border-box;
         }
+
         .login {
             padding-top: 1rem;
         }
@@ -42,7 +35,7 @@ include 'config/dbconn.php';
             font-size: 3rem;
             font-weight: 700;
             text-align: center;
-           
+
         }
 
         .input-box {
@@ -147,31 +140,30 @@ include 'config/dbconn.php';
 
 if (isset($_POST['submit'])) {
 
-$reguname = $_REQUEST["reguname"];
-$regEmail = $_REQUEST["regEmail"];
-$regNum = $_REQUEST["regNum"];
-$regpass = $_REQUEST["regpass"];
-$regcpass = $_REQUEST["regcpass"];
+    $reguname = $_REQUEST["reguname"];
+    $regEmail = $_REQUEST["regEmail"];
+    $regNum = $_REQUEST["regNum"];
+    $regpass = $_REQUEST["regpass"];
+    $regcpass = $_REQUEST["regcpass"];
 
 
 
-  $insert = "INSERT INTO `users`(`user_name`, `user_email`, `user_number`, `pass`, `conpass`) VALUES ('$reguname','$regEmail','$regNum','$regpass ','$regcpass')";
-  
+    $insert = "INSERT INTO `users`(`user_name`, `user_email`, `user_number`, `pass`, `conpass`) VALUES ('$reguname','$regEmail','$regNum','$regpass ','$regcpass')";
 
 
 
-  $query = mysqli_query($connection, $insert);
 
-  if(!$query){
-    echo "<script> alert('not inserted!!')</script>";
-    echo "<script> location.href = 'adduser.php'</script>";
+    $query = mysqli_query($connection, $insert);
 
-  }
-  else{
-    echo "<script> alert('SUCCESSFULLY registered')</script>";
-    echo "<script> location.href = 'client.php'</script>";
-    
-  }
+    if (!$query) {
+        echo "<script> alert('not inserted!!')</script>";
+        echo "<script> location.href = 'adduser.php'</script>";
+
+    } else {
+        echo "<script> alert('SUCCESSFULLY registered')</script>";
+        echo "<script> location.href = 'client.php'</script>";
+
+    }
 }
 
-  ?>
+?>

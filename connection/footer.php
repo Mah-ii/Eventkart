@@ -10,25 +10,17 @@
                 </p>
                 <ul class="social-list">
                     <li>
-                        <a href="#" class="social-link">
+                        <a href="https://www.facebook.com/people/EventKart/61557178460955/" class="social-link">
                             <ion-icon name="logo-facebook"></ion-icon>
                         </a>
                     </li>
+
                     <li>
-                        <a href="#" class="social-link">
-                            <ion-icon name="logo-twitter"></ion-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="social-link">
+                        <a href="https://www.instagram.com/eventkartt/?igsh=N3BzNmpqcm5xd3Fz" class="social-link">
                             <ion-icon name="logo-instagram"></ion-icon>
                         </a>
                     </li>
-                    <li>
-                        <a href="#" class="social-link">
-                            <ion-icon name="logo-youtube"></ion-icon>
-                        </a>
-                    </li>
+
                 </ul>
             </div>
             <ul class="footer-list">
@@ -62,7 +54,7 @@
                     Question or feedback?
                     We’d love to hear from you
                 </p>
-                <a href="../section/contact.php" class="btn-foot">
+                <a href="../section/contact.php" class="btn-foot btn">
                     <span class="span">Contact Us</span>
                     <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
                 </a>

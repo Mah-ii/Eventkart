@@ -46,23 +46,18 @@ $result = mysqli_query($connection, $insert);
 
     ?>
 
-
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <h2 style="margin-top: 1.5rem;">Booking Details</h2>
-                    </div><!-- /.col -->
+                    </div>
 
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                </div>
+            </div>
         </div>
-        <!-- /.content-header -->
-
-        <!-- Main content -->
+        
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -130,7 +125,7 @@ $result = mysqli_query($connection, $insert);
 
                                                     <a href="booking_delete.php?id=<?php echo $row['id'] ?>"
                                                         class="btn btn-danger btn-sm active"><i class="mdi mdi-delete"
-                                                        onclick="return checkdelete()"></i></a>
+                                                            onclick="return checkdelete()"></i></a>
 
                                                 </td>
 
@@ -181,7 +176,7 @@ $result = mysqli_query($connection, $insert);
 
         function checkdelete() {
             return confirm('Are you sure you want to delete this record?');
-    }
+        }
 
 
 

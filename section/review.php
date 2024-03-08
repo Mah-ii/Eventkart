@@ -43,9 +43,10 @@ session_start();
             --logo-size: 3rem;
 
         }
+
         .user-box a {
             padding: 8px 16px;
-            background-color:var(--homecolor1); 
+            background-color: var(--homecolor1);
             border: none;
             color: black;
             text-align: center;
@@ -58,7 +59,7 @@ session_start();
         }
 
         .user-box a:hover {
-            background-color: var(--white); 
+            background-color: var(--white);
         }
 
         .sub-menu-wrap .sub-menu {
@@ -90,7 +91,7 @@ session_start();
             display: flex;
             flex-direction: column;
             align-items: center;
-            /* Center horizontally */
+
         }
 
         .box h3 {
@@ -104,7 +105,7 @@ session_start();
         .box img {
             height: 15rem;
             width: 15rem;
-            /* margin-bottom: 2.5rem; */
+
         }
     </style>
 </head>
@@ -153,13 +154,9 @@ session_start();
     <?php include "../connection/footer.php" ?>
 
 
-    <!-- 
-    - ionicon link
-  -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <!-- Make sure to include Bootstrap JS at the end of the body -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 

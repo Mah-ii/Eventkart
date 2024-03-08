@@ -17,11 +17,10 @@ if (isset($_POST['update'])) {
     $description = $_POST['description'];
     
 
-    // File upload handling
-    $image = ''; // Placeholder for image path in the database
+    $image = ''; 
 
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $upload_dir = 'uploads/'; // Change this to your desired upload directory
+        $upload_dir = 'uploads/'; 
         $image_name = basename($_FILES['image']['name']);
         $target_path = $upload_dir . $image_name;
 
@@ -32,12 +31,10 @@ if (isset($_POST['update'])) {
             exit;
         }
     }
-
-    // Update data in the 'review' table
     $query = "UPDATE review SET title='$title', event_type='$event_type', description='$description'";
 
     if ($image_path !== '') {
-        // If a new image is provided, update the image path
+
         $query .= ", image='$image_path'";
     }
 
@@ -52,7 +49,6 @@ if (isset($_POST['update'])) {
     }
 }
 
-// Close the database connection
 mysqli_close($connection);
 
 ?>

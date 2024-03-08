@@ -41,24 +41,20 @@ $result = mysqli_query($connection, $insert);
 
     ?>
 
-
-
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-12">
                         <h2 style="margin-top: 1.5rem;">Gallery Details</h2>
-                    </div><!-- /.col -->
+                    </div>
 
-                </div><!-- /.row -->
-            </div><!-- /.container-fluid -->
+                </div>
+            </div> 
         </div>
-        <!-- /.content-header -->
+        
 
-        <!-- Main content -->
+
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
@@ -75,8 +71,6 @@ $result = mysqli_query($connection, $insert);
                                     <thead>
                                         <tr>
                                             <th>Id</th>
-                                            <!-- <th>Name</th>
-                                            <th>Title</th> -->
                                             <th>Image</th>
                                             <th>Category</th>
                                             <th>Actions</th>
@@ -90,10 +84,10 @@ $result = mysqli_query($connection, $insert);
                                                 <td>
                                                     <?php echo $row['id'] ?>
                                                 </td>
-                                              
+
                                                 <td>
                                                     <img src="<?php echo $row['image']; ?>" height="100">
-                                                
+
                                                 </td>
                                                 <td>
                                                     <?php echo $row['category'] ?>

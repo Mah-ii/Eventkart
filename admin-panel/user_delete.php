@@ -1,7 +1,3 @@
-
-
-
-
 <?php
 
 include 'config/dbconn.php';
@@ -13,20 +9,8 @@ $result = mysqli_query($connection, $insert);
 
 if ($result) {
   //  echo "Data Deleted Successfully";
-    echo "<script> location.href = 'client.php'</script>";
+  echo "<script> location.href = 'client.php'</script>";
 } else {
-    echo "Failed";
+  echo "Failed";
 }
 ?>
-
-
-
-
-
-
-
-
-
-
-
-
